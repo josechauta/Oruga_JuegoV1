@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2f6b24">
+  <title>La oruga del conocimiento</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <!-- Escena 1: menú principal -->
+  <main id="escena-menu" class="escena escena-menu">
+    <section class="panel-menu" aria-labelledby="titulo-juego">
+      <span class="insignia" aria-hidden="true">🐛</span>
+      <h1 id="titulo-juego">La oruga del conocimiento</h1>
+      <p>Ayuda a la oruga a subir de rama en rama hasta la copa.</p>
+      <button id="btn-iniciar" class="btn btn-principal" type="button">Iniciar juego</button>
+      <button id="btn-instrucciones" class="btn btn-secundario" type="button">Instrucciones</button>
+      <button id="btn-creditos" class="btn btn-secundario" type="button">Créditos</button>
+    </section>
+  </main>
+
+  <!-- Escena 2: tablero -->
+  <main id="escena-juego" class="escena escena-juego oculta">
+    <header class="barra">
+      <button id="btn-menu" class="btn-mini" type="button">← Menú</button>
+      <strong id="progreso">Nivel 1 de 5</strong>
+      <strong id="marcador">Aciertos: 0</strong>
+    </header>
+
+    <section id="tablero" class="tablero" aria-label="Árbol de preguntas">
+      <!-- SVG dibuja las ramas. Se escala con el tablero. -->
+      <svg id="capa-rutas" class="capa-rutas" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true"></svg>
+      <div id="capa-destinos" class="capa-destinos"></div>
+
+      <!-- Oruga creada con HTML y CSS. -->
+      <div id="oruga" class="oruga" aria-label="Oruga">
+        <i></i><i></i><i></i><i class="cabeza"><b></b></i>
+      </div>
+
+      <section id="panel-pregunta" class="panel-pregunta" aria-labelledby="pregunta">
+        <h2 id="pregunta">Pregunta</h2>
+        <div id="respuestas" class="respuestas"></div>
+        <p id="mensaje" class="mensaje" aria-live="polite">Selecciona una respuesta con el mouse.</p>
+      </section>
+    </section>
+  </main>
+
+  <!-- Modal reutilizable para instrucciones y créditos. -->
+  <div id="modal" class="modal oculta" role="presentation">
+    <section class="modal-contenido" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+      <h2 id="modal-titulo"></h2>
+      <div id="modal-texto"></div>
+      <button id="btn-cerrar-modal" class="btn btn-principal" type="button">Cerrar</button>
+    </section>
+  </div>
+
+  <script src="js/juego.js"></script>
+</body>
+</html>
